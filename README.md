@@ -16,4 +16,4 @@ HTML, CSS, JavaScript
 3. Arrange seats
 
 ## 👩‍💻 Made By
-Kaur Harnoor
+Krishn Kumar Rai
