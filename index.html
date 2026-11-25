@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Exam Seating Allocation System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Exam Seating Allocation System</h1>
+    <nav>
+      <a href="#setup">1. Rooms</a>
+      <a href="#students">2. Students</a>
+      <a href="#generate">3. Generate</a>
+      <a href="#plan">Seating plan</a>
+      <a href="#search">Search</a>
+      <a href="#admin">Admin</a>
+      <a href="#report">Report</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="setup">
+      <h2>1. Exam and room setup</h2>
+      <form id="examForm">
+        <label>Exam name <input type="text" id="examName" placeholder="Mid-term exam" required></label>
+        <label>Exam date <input type="date" id="examDate" required></label>
+        <button type="submit">Save exam</button>
+      </form>
+      <form id="roomForm">
+        <label>Room name <input type="text" id="roomName" placeholder="Room 101" required></label>
+        <label>Rows <input type="number" id="roomRows" min="1" max="15" value="5" required></label>
+        <label>Seats per row <input type="number" id="roomCols" min="1" max="12" value="6" required></label>
+        <button type="submit">Add room</button>
+      </form>
+      <p id="roomMsg" class="msg"></p>
+      <ul id="roomList"></ul>
+    </section>
+
+    <section id="students">
+      <h2>2. Add students</h2>
+      <form id="studentForm">
+        <label>Roll number <input type="text" id="roll" placeholder="101" required></label>
+        <label>Student name <input type="text" id="sname" placeholder="Amit Kumar" required></label>
+        <label>Class / Subject <input type="text" id="cls" placeholder="BCA-A" required></label>
+        <button type="submit">Add student</button>
+      </form>
+      <p id="studentMsg" class="msg"></p>
+      <button type="button" id="sampleBtn" class="light">Load sample data</button>
+      <button type="button" id="clearBtn" class="danger">Clear everything</button>
+      <div class="scroll">
+        <table>
+          <thead><tr><th>Roll</th><th>Name</th><th>Class / Subject</th><th>Actions</th></tr></thead>
+          <tbody id="studentBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="generate">
+      <h2>3. Generate seating plan</h2>
+      <p>One class: students sit in roll number order. Two or more classes: students are shuffled so that neighbours (left, right, front) are from different classes.</p>
+      <button type="button" id="genBtn">Generate seating plan</button>
+      <p id="genMsg" class="msg"></p>
+    </section>
+
+    <section id="plan">
+      <h2>Seating plan</h2>
+      <button type="button" id="printBtn" class="light">Print plan</button>
+      <div id="legend"></div>
+      <div id="planOut"><p class="empty">No plan yet. Add rooms and students, then press Generate.</p></div>
+    </section>
+
+    <section id="search">
+      <h2>Search a student</h2>
+      <label>Roll number or name <input type="search" id="searchBox" placeholder="Type to search"></label>
+      <div id="searchOut"></div>
+    </section>
+
+    <section id="admin">
+      <h2>Admin: swap two seats</h2>
+      <form id="swapForm">
+        <label>Roll number 1 <input type="text" id="swap1" required></label>
+        <label>Roll number 2 <input type="text" id="swap2" required></label>
+        <button type="submit">Swap seats</button>
+      </form>
+      <p id="swapMsg" class="msg"></p>
+    </section>
+
+    <section id="report">
+      <h2>Allocation report</h2>
+      <div id="reportOut"><p class="empty">Generate a plan to see the report.</p></div>
+    </section>
+  </main>
+
+  <footer><p>CSE326 Internet Programming project</p></footer>
+  <script src="script.js"></script>
+</body>
+</html>
